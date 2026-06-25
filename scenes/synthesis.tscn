@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cgo3t02xqffrx"]
+
+[ext_resource type="Shader" uid="uid://b2wkbndrxeek5" path="res://shaders/synthesis.gdshader" id="1_fs2am"]
+[ext_resource type="Texture2D" uid="uid://b7jewc0ijj2td" path="res://textures/rock_color.png" id="2_1vp20"]
+[ext_resource type="Texture2D" uid="uid://uyrrkatn5luo" path="res://textures/rock_normal.png" id="3_g45ba"]
+[ext_resource type="Texture2D" uid="uid://cdsusswphmdyj" path="res://textures/rock_bm.exr" id="4_bbxu8"]
+[ext_resource type="Texture2D" uid="uid://bon7o2ybwtvv" path="res://textures/rock_roughness.png" id="5_e5gnw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4hoia"]
+render_priority = 0
+shader = ExtResource("1_fs2am")
+shader_parameter/tiling_and_blending_grid_scale = 2.5
+shader_parameter/color = ExtResource("2_1vp20")
+shader_parameter/priority = ExtResource("4_bbxu8")
+shader_parameter/normal = ExtResource("3_g45ba")
+shader_parameter/roughness = ExtResource("5_e5gnw")
+shader_parameter/micro_priority = 0.002000000095
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gtmt8"]
+size = Vector2(32, 32)
+
+[node name="Synthesis" type="Node3D" unique_id=1586732563]
+
+[node name="PlaneMesh" type="MeshInstance3D" parent="." unique_id=1791702312]
+material_override = SubResource("ShaderMaterial_4hoia")
+mesh = SubResource("PlaneMesh_gtmt8")
+
+[node name="Light" type="DirectionalLight3D" parent="." unique_id=1337147990]
+transform = Transform3D(0.44035804, -0.3478048, -0.8277177, 0, -0.92191714, 0.38738716, -0.89782226, -0.17058904, -0.4059736, 0, 0, 0)

@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://bqpncwls23dyr"]
+
+[ext_resource type="Shader" uid="uid://ddluh4jre4snr" path="res://shaders/synthesis_mixing_3.gdshader" id="1_x7ydv"]
+[ext_resource type="Texture2D" uid="uid://b7jewc0ijj2td" path="res://textures/rock_color.png" id="2_gwo48"]
+[ext_resource type="Texture2D" uid="uid://bujkea3esm35r" path="res://textures/paving_stones_color.png" id="2_kevbq"]
+[ext_resource type="Texture2D" uid="uid://uyrrkatn5luo" path="res://textures/rock_normal.png" id="3_i0xr6"]
+[ext_resource type="Texture2D" uid="uid://cdsusswphmdyj" path="res://textures/rock_bm.exr" id="4_bgax1"]
+[ext_resource type="Texture2D" uid="uid://d4na2k8b34nny" path="res://textures/sand_color.png" id="4_dcrms"]
+[ext_resource type="Texture2D" uid="uid://dtcd7jkg7jjey" path="res://textures/paving_stones_normal.png" id="5_36ai4"]
+[ext_resource type="Texture2D" uid="uid://bon7o2ybwtvv" path="res://textures/rock_roughness.png" id="5_xkcow"]
+[ext_resource type="Texture2D" uid="uid://bsqrvkdfxgn2v" path="res://textures/sand_normal.png" id="7_ypdkl"]
+[ext_resource type="Texture2D" uid="uid://dg0f3x0oj3olh" path="res://textures/paving_stones_bm.exr" id="8_1c5eh"]
+[ext_resource type="Texture2D" uid="uid://ce15ehixh26ru" path="res://textures/sand_bm.exr" id="10_fj4bk"]
+[ext_resource type="Texture2D" uid="uid://ce1ym1efq147o" path="res://textures/paving_stones_roughness.png" id="11_dlh64"]
+[ext_resource type="Texture2D" uid="uid://csk0koa1h4jr7" path="res://textures/sand_roughness.png" id="13_7c3p8"]
+
+[sub_resource type="Gradient" id="Gradient_ljhek"]
+offsets = PackedFloat32Array(0.14344262, 0.30532786, 0.5, 0.88729507)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1)
+metadata/_snap_count = 2
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_aa7a3"]
+domain_warp_enabled = true
+domain_warp_amplitude = 44.125
+domain_warp_frequency = 0.015
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x7ydv"]
+noise = SubResource("FastNoiseLite_aa7a3")
+color_ramp = SubResource("Gradient_ljhek")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7fwfj"]
+render_priority = 0
+shader = ExtResource("1_x7ydv")
+shader_parameter/tiling_and_blending_grid_scale = 2.5
+shader_parameter/colorA = ExtResource("2_kevbq")
+shader_parameter/priorityA = ExtResource("8_1c5eh")
+shader_parameter/normalA = ExtResource("5_36ai4")
+shader_parameter/roughnessA = ExtResource("11_dlh64")
+shader_parameter/micro_priorityA = 0.002
+shader_parameter/colorB = ExtResource("2_gwo48")
+shader_parameter/priorityB = ExtResource("4_bgax1")
+shader_parameter/normalB = ExtResource("3_i0xr6")
+shader_parameter/roughnessB = ExtResource("5_xkcow")
+shader_parameter/micro_priorityB = 0.002
+shader_parameter/colorC = ExtResource("4_dcrms")
+shader_parameter/priorityC = ExtResource("10_fj4bk")
+shader_parameter/normalC = ExtResource("7_ypdkl")
+shader_parameter/roughnessC = ExtResource("13_7c3p8")
+shader_parameter/micro_priorityC = 0.0250000011875
+shader_parameter/mask = SubResource("NoiseTexture2D_x7ydv")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gtmt8"]
+size = Vector2(32, 32)
+
+[node name="SynthesisMixing3" type="Node3D" unique_id=1586732563]
+
+[node name="PlaneMesh" type="MeshInstance3D" parent="." unique_id=1791702312]
+material_override = SubResource("ShaderMaterial_7fwfj")
+mesh = SubResource("PlaneMesh_gtmt8")
+
+[node name="Light" type="DirectionalLight3D" parent="." unique_id=1337147990]
+transform = Transform3D(0.44035804, -0.3478048, -0.8277177, 0, -0.92191714, 0.38738716, -0.89782226, -0.17058904, -0.4059736, 0, 0, 0)

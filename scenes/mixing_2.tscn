@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bl38gwml5igwl"]
+
+[ext_resource type="Shader" uid="uid://dsw4oqivkjdxn" path="res://shaders/mixing_2.gdshader" id="1_mmdtc"]
+[ext_resource type="Texture2D" uid="uid://bujkea3esm35r" path="res://textures/paving_stones_color.png" id="2_d2kct"]
+[ext_resource type="Texture2D" uid="uid://d4na2k8b34nny" path="res://textures/sand_color.png" id="3_h6n3i"]
+[ext_resource type="Texture2D" uid="uid://dtcd7jkg7jjey" path="res://textures/paving_stones_normal.png" id="4_gdfpe"]
+[ext_resource type="Texture2D" uid="uid://bsqrvkdfxgn2v" path="res://textures/sand_normal.png" id="5_mb4h6"]
+[ext_resource type="Texture2D" uid="uid://dg0f3x0oj3olh" path="res://textures/paving_stones_bm.exr" id="6_j6hpg"]
+[ext_resource type="Texture2D" uid="uid://ce15ehixh26ru" path="res://textures/sand_bm.exr" id="7_r3u6s"]
+[ext_resource type="Texture2D" uid="uid://ce1ym1efq147o" path="res://textures/paving_stones_roughness.png" id="8_8rfvo"]
+[ext_resource type="Texture2D" uid="uid://csk0koa1h4jr7" path="res://textures/sand_roughness.png" id="9_c75mo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_novmw"]
+render_priority = 0
+shader = ExtResource("1_mmdtc")
+shader_parameter/colorA = ExtResource("2_d2kct")
+shader_parameter/priorityA = ExtResource("6_j6hpg")
+shader_parameter/normalA = ExtResource("4_gdfpe")
+shader_parameter/roughnessA = ExtResource("8_8rfvo")
+shader_parameter/micro_priorityA = 0.002
+shader_parameter/colorB = ExtResource("3_h6n3i")
+shader_parameter/priorityB = ExtResource("7_r3u6s")
+shader_parameter/normalB = ExtResource("5_mb4h6")
+shader_parameter/roughnessB = ExtResource("9_c75mo")
+shader_parameter/micro_priorityB = 0.030000001425
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gtmt8"]
+
+[node name="Mixing2" type="Node3D" unique_id=1586732563]
+
+[node name="PlaneMesh" type="MeshInstance3D" parent="." unique_id=1791702312]
+material_override = SubResource("ShaderMaterial_novmw")
+mesh = SubResource("PlaneMesh_gtmt8")
+
+[node name="Light" type="DirectionalLight3D" parent="." unique_id=1337147990]
+transform = Transform3D(1, 0, 0, 0, -0.92191714, 0.38738716, 0, -0.38738716, -0.92191714, 0, 0, 0)

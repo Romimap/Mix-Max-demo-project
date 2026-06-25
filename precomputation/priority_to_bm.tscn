@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bc4irsfdofco0"]
+
+[ext_resource type="Script" uid="uid://v8dn1n36rqar" path="res://precomputation/priority_to_bm.gd" id="1_mcapx"]
+[ext_resource type="Texture2D" uid="uid://1ype1hls6ere" path="res://textures/sand_priority.png" id="2_4bdvl"]
+
+[node name="PriorityToBm" type="Node" unique_id=1955875076]
+script = ExtResource("1_mcapx")
+priority_map = ExtResource("2_4bdvl")
+export_path = "textures/sand_bm.exr"
+metadata/_custom_type_script = "uid://v8dn1n36rqar"
