@@ -20,7 +20,7 @@ In the ``textures/`` folder, we saw that the priority maps exists in a "raw" sta
 The latter is derived from the former and is the one used in the shaders.
 The ``_bm`` format contains the centered priorities in the red channel, and their square in the green channel.
 This data enables real-time evaluation of both the mean and the variance of the priorities over footprints (see [LEAN mapping](https://userpages.cs.umbc.edu/olano/papers/lean/)).
-the ``priority_to_bm.tscn`` scene is composed of a single "tool" node that takes as an input a grayscale priority map, and outputs a floating point BM image at the provided path.
+the ``priority_to_bm.tscn`` scene is composed of a single tool node that takes as an input a grayscale priority map, and outputs a floating point BM image at the provided path.
 Usage : Drag and drop a texture into the ``Priority Map`` field, define the ``Export Path`` to where the BM map will be saved (e.g. ``textures/sand_bm.exr``, other file formats are not supported), and press ``Run !``.
 
 # Scenes
