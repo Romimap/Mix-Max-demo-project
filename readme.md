@@ -1,6 +1,13 @@
 This [Godot 4.7](https://godotengine.org/download/archive/) project is a demo that both provides implementation examples and shows the capabilities of the [Mix-Max](https://hal.science/hal-04692440v1/file/islandora_171738.pdf) operator.
 The project is not made to be run through an executable, but rather opened in Godot editor to be examined.
 
+> TL;DR, I want to QUICKLY understand
+
+Read those 3 files :
+- ``shaders/mixing_2.gdshader`` (how to use the Mix-Max)
+- ``shaders/includes/mix_max.gdshaderinc`` (the Mix-Max)
+- ``shaders/includes/probability_functions.gdshaderinc`` (important formulae)
+
 # Project structure
 
 - **scenes** : This folder contains use-case scenarios. 
