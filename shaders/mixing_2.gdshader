@@ -16,12 +16,13 @@ uniform sampler2D normalB 		: filter_linear_mipmap_anisotropic, repeat_enable, h
 uniform sampler2D roughnessB 	: filter_linear_mipmap_anisotropic, repeat_enable;
 uniform float micro_priorityB	: hint_range(0.0, 0.1, 0.001) = 0.002;
 
+uniform float transition_strength : hint_range(0.1, 2.0, 0.1) = 0.5;
 
 
 varying float v;
 
 void vertex() {
-	v = (UV.x - 0.5) * 0.5;
+	v = (UV.x - 0.5) * transition_strength;
 }
 
 void fragment() {
