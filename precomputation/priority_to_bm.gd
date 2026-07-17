@@ -16,18 +16,25 @@ func get_mean(img : Image) -> Color:
 			mean += img.get_pixel(x, y);
 	return mean / N
 
+func fill_centered_priorities(img_in, img_out) -> void:
+	var mean_priority = get_mean(img_in).r
+	
+	for y in img_in.get_height():
+		for x in img_in.get_width():
+			var in_pixel : Color = img_in.get_pixel(x, y)
+			var out_pixel : Color = img_out.get_pixel(x, y)
+			var centered_priority : float = in_pixel.r - mean_priority;
+			out_pixel.r = centered_priority
+			out_pixel.g = centered_priority * centered_priority
+			img_out.set_pixel(x, y, out_pixel)
+
+
 @warning_ignore("unused_private_class_variable")
 @export_tool_button("Run !") var _run = func() :
 	var img_in = priority_map.get_image()
 	var img_out = Image.create_empty(img_in.get_width(), img_in.get_height(), true, Image.FORMAT_RGF)
 	
-	var mean_priority = get_mean(img_in).r
-	
-	for y in img_in.get_height():
-		for x in img_in.get_width():
-			var centered_priority : float = img_in.get_pixel(x, y).r - mean_priority;
-			var centered_priority_squared : float = centered_priority * centered_priority
-			img_out.set_pixel(x, y, Color(centered_priority, centered_priority_squared, 0, 0))
+	fill_centered_priorities(img_in, img_out)
 	
 	img_out.clear_mipmaps()
 	img_out.generate_mipmaps()
