@@ -25,12 +25,13 @@ uniform float micro_priorityC	: hint_range(0.0, 0.1, 0.001) = 0.002;
 
 uniform sampler2D mask : filter_linear, repeat_disable;
 
+uniform float uv_scale : hint_range(0.5, 64.0, 0.1) = 32.0;
 
 varying vec2 UV_MASK;
 
 void vertex() {
 	UV_MASK = UV;
-	UV *= 32.0;
+	UV *= uv_scale; // Scales the UV to get a larger synthesis surface
 }
 
 void fragment() {
@@ -38,13 +39,13 @@ void fragment() {
 	mixmaxdata B = tiling_and_blending(colorB, priorityB, normalB, roughnessB, micro_priorityB, UV);
 	mixmaxdata C = tiling_and_blending(colorC, priorityC, normalC, roughnessC, micro_priorityC, UV);
 	
-	bias(A, texture(mask, UV_MASK).r);
-	bias(B, texture(mask, UV_MASK).g);
-	bias(C, texture(mask, UV_MASK).b);
+	A.priorities.mean += texture(mask, UV_MASK).r;
+	B.priorities.mean += texture(mask, UV_MASK).g;
+	C.priorities.mean += texture(mask, UV_MASK).b;
 	
 	mixmaxdata M = MixMax(MixMax(A, B), C);
 	
-	ALBEDO = pow(M.color, vec3(2.2));
+	ALBEDO = pow(M.color, vec3(2.2)); // color^2.2 is purely visual, to add contrast
 	NORMAL_MAP = M.normal;
 	ROUGHNESS = M.roughness;
 }

@@ -1,7 +1,7 @@
 #ifndef __HASH__
 #define __HASH__
 
-//From the Deliot and Heitz implementation (2019)
+// From the Deliot and Heitz high performance noise implementation (2019)
 vec2 hash2(ivec2 ip)
 {
 	vec2 p = vec2(ip);

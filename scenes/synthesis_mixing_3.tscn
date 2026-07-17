@@ -48,6 +48,7 @@ shader_parameter/normalC = ExtResource("7_ypdkl")
 shader_parameter/roughnessC = ExtResource("13_7c3p8")
 shader_parameter/micro_priorityC = 0.0250000011875
 shader_parameter/mask = SubResource("NoiseTexture2D_x7ydv")
+shader_parameter/uv_scale = 32.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gtmt8"]
 size = Vector2(32, 32)

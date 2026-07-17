@@ -22,11 +22,12 @@ void dual_grid(vec2 uv, out float v1, out float v2, out ivec2 id1, out ivec2 id2
 	id1 = ivec2(uv_a);
 	id2 = ivec2(uv_b);
 	
-	//"Manhattan distance" hats over each cell
+	// "Manhattan distance" hats over each cell
 	v1 = 1.0 - max(abs(fract(uv_a.x) * 2.0 - 1.0), abs(fract(uv_a.y) * 2.0 - 1.0));
 	v2 = 1.0 - max(abs(fract(uv_b.x) * 2.0 - 1.0), abs(fract(uv_b.y) * 2.0 - 1.0));
 	
-	//This is to tweak the transition length, similar to Burley (2019) 
+	// This is to tweak the transition length, similar to Burley (2019)
+	// (Note that our method work even without normalized interpolation fields v)
 	v1 = pow(v1, 0.4);
 	v2 = pow(v2, 0.4);
 }
@@ -43,10 +44,10 @@ mixmaxdata tiling_and_blending(sampler2D color, sampler2D priority, sampler2D no
 	mixmaxdata B = make_mixmaxdata(uvB, color, priority, normal, roughness, micro_priority);
 	
 	B.priorities.mean *= -1.0; // See section 4 in the paper.
-	//B.color *= 0.1; //Uncomment this line to visualize the grid !
+	//B.color *= 0.1; // Uncomment this line to visualize the grid !
 	
-	bias(A, v1);
-	bias(B, v2);
+	A.priorities.mean += v1;
+	B.priorities.mean += v2;
 	
 	return MixMax(A, B);
 }
