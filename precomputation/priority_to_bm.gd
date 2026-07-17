@@ -6,26 +6,28 @@ class_name PriorityToBM extends Node
 @export var export_path : String = "res://textures/BM.exr"
 
 
+func get_mean(img : Image) -> Color:
+	var mean = Color(0, 0, 0, 0)
+	var H = img.get_height()
+	var W = img.get_width()
+	var N : float = H * W
+	for y in H:
+		for x in W:
+			mean += img.get_pixel(x, y);
+	return mean / N
+
 @warning_ignore("unused_private_class_variable")
 @export_tool_button("Run !") var _run = func() :
 	var img_in = priority_map.get_image()
 	var img_out = Image.create_empty(img_in.get_width(), img_in.get_height(), true, Image.FORMAT_RGF)
 	
-	# We compute the mean ...
-	var mean : float = 0.0
-	var N : float = img_in.get_height() * img_in.get_width()
-	for y in img_in.get_height():
-		for x in img_in.get_width():
-			var priority : float = img_in.get_pixel(x, y).r;
-			mean += priority / N
+	var mean_priority = get_mean(img_in).r
 	
 	for y in img_in.get_height():
 		for x in img_in.get_width():
-			var priority : float = img_in.get_pixel(x, y).r - mean; # ... so that we center the priority
-			var priority_squared : float = priority * priority
-			img_out.set_pixel(x, y, Color(priority, priority_squared, 0, 0))
-	
-	print("Done !")
+			var centered_priority : float = img_in.get_pixel(x, y).r - mean_priority;
+			var centered_priority_squared : float = centered_priority * centered_priority
+			img_out.set_pixel(x, y, Color(centered_priority, centered_priority_squared, 0, 0))
 	
 	img_out.clear_mipmaps()
 	img_out.generate_mipmaps()
