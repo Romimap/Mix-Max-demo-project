@@ -8,7 +8,7 @@ Each scene contains a mesh that is rendered using a ``ShaderMaterial``.
 By inspecting the material, one can see which shader is executing with which parameters.
 
 - **textures** : This folder contains the data used by the shaders. 
-three sets of appearances (paving_stones, rock, sand) is provided.
+seven sets of appearances (brick, dirt, grass, moss, paving_stones, rock, sand) are provided.
 each appearance is composed of a color, normal, roughness texture, and have an associated priority map (``*_priority`` and ``*priority_bm``).
 
 - **shaders** : This folder contains most of the code.
@@ -27,9 +27,13 @@ Usage : Drag and drop a texture into the ``Priority Map`` field, define the ``Ex
 
 - **mixing_2.tscn** : Transitions between two textures. UV coordinates are used to define the blending weights.
 
+- **micropriority.tscn** : Illustrates the effect of the micro-priority parameter on a transition between two textures (figure 10 of the paper).
+
 - **synthesis.tscn** : Synthesizes a texture using a tiling and blending algorithm (a dual grid is used)
 
 - **synthesis_mixing_3.tscn** : Synthesizes three texture "layers", and then mixes them together using image masks.
+
+- **teaser.tscn** : Showcases transitions between the provided appearances (figure 1 of the paper).
 
 # Shader dependencies
 
