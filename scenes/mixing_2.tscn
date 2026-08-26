@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://d4na2k8b34nny" path="res://textures/sand_color.png" id="3_h6n3i"]
 [ext_resource type="Texture2D" uid="uid://dtcd7jkg7jjey" path="res://textures/paving_stones_normal.png" id="4_gdfpe"]
 [ext_resource type="Texture2D" uid="uid://bsqrvkdfxgn2v" path="res://textures/sand_normal.png" id="5_mb4h6"]
-[ext_resource type="Texture2D" uid="uid://dg0f3x0oj3olh" path="res://textures/paving_stones_bm.exr" id="6_j6hpg"]
-[ext_resource type="Texture2D" uid="uid://ce15ehixh26ru" path="res://textures/sand_bm.exr" id="7_r3u6s"]
+[ext_resource type="Texture2D" uid="uid://dg0f3x0oj3olh" path="res://textures/paving_stones_priority_bm.exr" id="6_d2kct"]
+[ext_resource type="Texture2D" uid="uid://ce15ehixh26ru" path="res://textures/sand_priority_bm.exr" id="7_h6n3i"]
 [ext_resource type="Texture2D" uid="uid://ce1ym1efq147o" path="res://textures/paving_stones_roughness.png" id="8_8rfvo"]
 [ext_resource type="Texture2D" uid="uid://csk0koa1h4jr7" path="res://textures/sand_roughness.png" id="9_c75mo"]
 
@@ -14,15 +14,16 @@
 render_priority = 0
 shader = ExtResource("1_mmdtc")
 shader_parameter/colorA = ExtResource("2_d2kct")
-shader_parameter/priorityA = ExtResource("6_j6hpg")
+shader_parameter/priority_bmA = ExtResource("6_d2kct")
 shader_parameter/normalA = ExtResource("4_gdfpe")
 shader_parameter/roughnessA = ExtResource("8_8rfvo")
-shader_parameter/micro_priorityA = 0.002
+shader_parameter/micro_priorityA = 0.0010000000475
 shader_parameter/colorB = ExtResource("3_h6n3i")
-shader_parameter/priorityB = ExtResource("7_r3u6s")
+shader_parameter/priority_bmB = ExtResource("7_h6n3i")
 shader_parameter/normalB = ExtResource("5_mb4h6")
 shader_parameter/roughnessB = ExtResource("9_c75mo")
-shader_parameter/micro_priorityB = 0.030000001425
+shader_parameter/micro_priorityB = 0.02000000095
+shader_parameter/transition_strength = 0.70000001043084
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gtmt8"]
 

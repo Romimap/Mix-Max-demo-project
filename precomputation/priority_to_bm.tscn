@@ -6,5 +6,5 @@
 [node name="PriorityToBm" type="Node" unique_id=1955875076]
 script = ExtResource("1_mcapx")
 priority_map = ExtResource("2_mcapx")
-export_path = "textures/moss_bm.exr"
+export_path = "textures/moss_priority_bm.exr"
 metadata/_custom_type_script = "uid://v8dn1n36rqar"

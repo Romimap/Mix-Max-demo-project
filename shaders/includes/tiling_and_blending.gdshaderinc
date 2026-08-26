@@ -43,7 +43,12 @@ mixmaxdata tiling_and_blending(sampler2D color, sampler2D priority, sampler2D no
 	mixmaxdata A = make_mixmaxdata(uvA, color, priority, normal, roughness, micro_priority);
 	mixmaxdata B = make_mixmaxdata(uvB, color, priority, normal, roughness, micro_priority);
 	
-	B.priorities.mean *= -1.0; // See section 4 in the paper.
+	// As explained in section 4 of the article, symmetrization makes the synthesis stationary.
+	// However, as it requires inverting a priority map, some geometric artifacts can arise.
+	// This is why, when stationarity artifacts are subtle and geometric artifacts are strong, disabling symmetrization can sometimes increase the visual quality.
+	#ifndef SYMMETRIZATION_DISABLED 
+	B.priorities.mean *= -1.0; 
+	#endif
 	//B.color *= 0.1; // Uncomment this line to visualize the grid !
 	
 	A.priorities.mean += v1;

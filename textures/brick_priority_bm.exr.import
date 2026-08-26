@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlf3alyvgyvu8"
-path="res://.godot/imported/dirt_bm.exr-b56266530cba4b220158318ca5844c02.ctex"
+uid="uid://ckwl6p3hp23s0"
+path="res://.godot/imported/brick_priority_bm.exr-49c11679e54b94c68db12723b457bf43.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/dirt_bm.exr"
-dest_files=["res://.godot/imported/dirt_bm.exr-b56266530cba4b220158318ca5844c02.ctex"]
+source_file="res://textures/brick_priority_bm.exr"
+dest_files=["res://.godot/imported/brick_priority_bm.exr-49c11679e54b94c68db12723b457bf43.ctex"]
 
 [params]
 

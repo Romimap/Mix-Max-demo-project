@@ -1,29 +1,30 @@
 shader_type spatial;
 
 #include "includes/mix_max.gdshaderinc"
+#define SYMMETRIZATION_DISABLED //See tiling_and_blending.gdshaderinc
 #include "includes/tiling_and_blending.gdshaderinc"
 
 
 
 uniform sampler2D colorA 		: filter_linear_mipmap_anisotropic, repeat_enable;
-uniform sampler2D priorityA 	: filter_linear_mipmap_anisotropic, repeat_enable;
+uniform sampler2D priority_bmA 	: filter_linear_mipmap_anisotropic, repeat_enable;
 uniform sampler2D normalA 		: filter_linear_mipmap_anisotropic, repeat_enable, hint_normal;
 uniform sampler2D roughnessA 	: filter_linear_mipmap_anisotropic, repeat_enable;
 uniform float micro_priorityA	: hint_range(0.0, 0.1, 0.001) = 0.002;
 
 uniform sampler2D colorB 		: filter_linear_mipmap_anisotropic, repeat_enable;
-uniform sampler2D priorityB 	: filter_linear_mipmap_anisotropic, repeat_enable;
+uniform sampler2D priority_bmB 	: filter_linear_mipmap_anisotropic, repeat_enable;
 uniform sampler2D normalB 		: filter_linear_mipmap_anisotropic, repeat_enable, hint_normal;
 uniform sampler2D roughnessB 	: filter_linear_mipmap_anisotropic, repeat_enable;
 uniform float micro_priorityB	: hint_range(0.0, 0.1, 0.001) = 0.002;
 
 uniform sampler2D colorC 		: filter_linear_mipmap_anisotropic, repeat_enable;
-uniform sampler2D priorityC 	: filter_linear_mipmap_anisotropic, repeat_enable;
+uniform sampler2D priority_bmC 	: filter_linear_mipmap_anisotropic, repeat_enable;
 uniform sampler2D normalC 		: filter_linear_mipmap_anisotropic, repeat_enable, hint_normal;
 uniform sampler2D roughnessC 	: filter_linear_mipmap_anisotropic, repeat_enable;
 uniform float micro_priorityC	: hint_range(0.0, 0.1, 0.001) = 0.002;
 
-uniform sampler2D mask : filter_linear, repeat_disable;
+uniform sampler2D mask : filter_linear;
 
 uniform float uv_scale : hint_range(0.5, 64.0, 0.1) = 32.0;
 
@@ -35,9 +36,9 @@ void vertex() {
 }
 
 void fragment() {
-	mixmaxdata A = tiling_and_blending(colorA, priorityA, normalA, roughnessA, micro_priorityA, UV);
-	mixmaxdata B = tiling_and_blending(colorB, priorityB, normalB, roughnessB, micro_priorityB, UV);
-	mixmaxdata C = tiling_and_blending(colorC, priorityC, normalC, roughnessC, micro_priorityC, UV);
+	mixmaxdata A = tiling_and_blending(colorA, priority_bmA, normalA, roughnessA, micro_priorityA, UV);
+	mixmaxdata B = tiling_and_blending(colorB, priority_bmB, normalB, roughnessB, micro_priorityB, UV);
+	mixmaxdata C = tiling_and_blending(colorC, priority_bmC, normalC, roughnessC, micro_priorityC, UV);
 	
 	A.priorities.mean += texture(mask, UV_MASK).r;
 	B.priorities.mean += texture(mask, UV_MASK).g;

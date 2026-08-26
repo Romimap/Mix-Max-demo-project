@@ -3,13 +3,13 @@ shader_type spatial;
 #include "includes/mix_max.gdshaderinc"
 
 uniform sampler2D colorA 		: filter_linear_mipmap_anisotropic, repeat_enable;
-uniform sampler2D priorityA 	: filter_linear_mipmap_anisotropic, repeat_enable;
+uniform sampler2D priority_bmA 	: filter_linear_mipmap_anisotropic, repeat_enable;
 uniform sampler2D normalA 		: filter_linear_mipmap_anisotropic, repeat_enable, hint_normal;
 uniform sampler2D roughnessA 	: filter_linear_mipmap_anisotropic, repeat_enable;
 uniform float micro_priorityA	: hint_range(0.0, 0.1, 0.001) = 0.002;
 
 uniform sampler2D colorB 		: filter_linear_mipmap_anisotropic, repeat_enable;
-uniform sampler2D priorityB 	: filter_linear_mipmap_anisotropic, repeat_enable;
+uniform sampler2D priority_bmB 	: filter_linear_mipmap_anisotropic, repeat_enable;
 uniform sampler2D normalB 		: filter_linear_mipmap_anisotropic, repeat_enable, hint_normal;
 uniform sampler2D roughnessB 	: filter_linear_mipmap_anisotropic, repeat_enable;
 uniform float micro_priorityB	: hint_range(0.0, 0.1, 0.001) = 0.002;
@@ -24,8 +24,8 @@ void vertex() {
 
 void fragment() {
 	// 1. Build the mix max structure
-	mixmaxdata A = make_mixmaxdata(UV, colorA, priorityA, normalA, roughnessA, micro_priorityA);
-	mixmaxdata B = make_mixmaxdata(UV, colorB, priorityB, normalB, roughnessB, micro_priorityB);
+	mixmaxdata A = make_mixmaxdata(UV, colorA, priority_bmA, normalA, roughnessA, micro_priorityA);
+	mixmaxdata B = make_mixmaxdata(UV, colorB, priority_bmB, normalB, roughnessB, micro_priorityB);
 	
 	// 2. Bias the priorities so that a transition occur
 	A.priorities.mean +=  v;

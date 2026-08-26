@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://obneukweltpm"
-path="res://.godot/imported/moss_bm.exr-8e08e1eaca4c8977742f519becf5f3b6.ctex"
+uid="uid://ce15ehixh26ru"
+path="res://.godot/imported/sand_priority_bm.exr-d8a0a6c61d9c00034b80eb29423c357c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/moss_bm.exr"
-dest_files=["res://.godot/imported/moss_bm.exr-8e08e1eaca4c8977742f519becf5f3b6.ctex"]
+source_file="res://textures/sand_priority_bm.exr"
+dest_files=["res://.godot/imported/sand_priority_bm.exr-d8a0a6c61d9c00034b80eb29423c357c.ctex"]
 
 [params]
 

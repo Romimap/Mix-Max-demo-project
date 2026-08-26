@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dtcd7jkg7jjey" path="res://textures/paving_stones_normal.png" id="4_f37do"]
 [ext_resource type="Texture2D" uid="uid://bsqrvkdfxgn2v" path="res://textures/sand_normal.png" id="5_envws"]
 [ext_resource type="Texture2D" uid="uid://b1l2tpldrtwhx" path="res://textures/moss_normal.png" id="5_m1trb"]
-[ext_resource type="Texture2D" uid="uid://dg0f3x0oj3olh" path="res://textures/paving_stones_bm.exr" id="6_wg6es"]
-[ext_resource type="Texture2D" uid="uid://obneukweltpm" path="res://textures/moss_bm.exr" id="7_pe3hv"]
-[ext_resource type="Texture2D" uid="uid://ce15ehixh26ru" path="res://textures/sand_bm.exr" id="7_q7yi4"]
+[ext_resource type="Texture2D" uid="uid://dg0f3x0oj3olh" path="res://textures/paving_stones_priority_bm.exr" id="6_wg6es"]
+[ext_resource type="Texture2D" uid="uid://obneukweltpm" path="res://textures/moss_priority_bm.exr" id="7_pe3hv"]
+[ext_resource type="Texture2D" uid="uid://ce15ehixh26ru" path="res://textures/sand_priority_bm.exr" id="7_q7yi4"]
 [ext_resource type="Texture2D" uid="uid://ce1ym1efq147o" path="res://textures/paving_stones_roughness.png" id="8_nkfms"]
 [ext_resource type="Texture2D" uid="uid://cpum1byu4hwwl" path="res://textures/moss_roughness.png" id="9_82iwr"]
 [ext_resource type="Texture2D" uid="uid://csk0koa1h4jr7" path="res://textures/sand_roughness.png" id="9_nxxl2"]
@@ -17,29 +17,29 @@
 [ext_resource type="Texture2D" uid="uid://bk2rot74qlkla" path="res://textures/brick_color.png" id="11_qiw1o"]
 [ext_resource type="Texture2D" uid="uid://06v36cmrkop8" path="res://textures/dirt_normal.png" id="12_th2rb"]
 [ext_resource type="Texture2D" uid="uid://bvw7edhqmv4k5" path="res://textures/brick_normal.png" id="13_qnyes"]
-[ext_resource type="Texture2D" uid="uid://dlf3alyvgyvu8" path="res://textures/dirt_bm.exr" id="14_is4ey"]
-[ext_resource type="Texture2D" uid="uid://ckwl6p3hp23s0" path="res://textures/brick_bm.exr" id="15_pj8uw"]
+[ext_resource type="Texture2D" uid="uid://dlf3alyvgyvu8" path="res://textures/dirt_priority_bm.exr" id="14_is4ey"]
+[ext_resource type="Texture2D" uid="uid://ckwl6p3hp23s0" path="res://textures/brick_priority_bm.exr" id="15_pj8uw"]
 [ext_resource type="Texture2D" uid="uid://3igpuj8wlocb" path="res://textures/dirt_roughness.png" id="16_qwfmy"]
 [ext_resource type="Texture2D" uid="uid://cehmvh8lflq43" path="res://textures/brick_roughness.png" id="17_krbi2"]
 [ext_resource type="Texture2D" uid="uid://b7jewc0ijj2td" path="res://textures/rock_color.png" id="18_vx2mu"]
 [ext_resource type="Texture2D" uid="uid://uyrrkatn5luo" path="res://textures/rock_normal.png" id="19_s6dyd"]
-[ext_resource type="Texture2D" uid="uid://cdsusswphmdyj" path="res://textures/rock_bm.exr" id="20_b57vr"]
+[ext_resource type="Texture2D" uid="uid://cdsusswphmdyj" path="res://textures/rock_priority_bm.exr" id="20_b57vr"]
 [ext_resource type="Texture2D" uid="uid://bon7o2ybwtvv" path="res://textures/rock_roughness.png" id="21_y1q35"]
 [ext_resource type="Texture2D" uid="uid://uoffvbtjmqnb" path="res://textures/grass_color.png" id="26_ntuos"]
 [ext_resource type="Texture2D" uid="uid://bloqrae8lxnpb" path="res://textures/grass_normal.png" id="27_7dy03"]
-[ext_resource type="Texture2D" uid="uid://c27apuv18brq5" path="res://textures/grass_bm.exr" id="28_dqnt8"]
+[ext_resource type="Texture2D" uid="uid://c27apuv18brq5" path="res://textures/grass_priority_bm.exr" id="28_dqnt8"]
 [ext_resource type="Texture2D" uid="uid://bm35emfcrccar" path="res://textures/grass_roughness.png" id="29_x6ofo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fp2u4"]
 render_priority = 0
 shader = ExtResource("1_id5tj")
 shader_parameter/colorA = ExtResource("2_ofg0m")
-shader_parameter/priorityA = ExtResource("6_wg6es")
+shader_parameter/priority_bmA = ExtResource("6_wg6es")
 shader_parameter/normalA = ExtResource("4_f37do")
 shader_parameter/roughnessA = ExtResource("8_nkfms")
 shader_parameter/micro_priorityA = 0.002
 shader_parameter/colorB = ExtResource("3_mokmv")
-shader_parameter/priorityB = ExtResource("7_pe3hv")
+shader_parameter/priority_bmB = ExtResource("7_pe3hv")
 shader_parameter/normalB = ExtResource("5_m1trb")
 shader_parameter/roughnessB = ExtResource("9_82iwr")
 shader_parameter/micro_priorityB = 0.002
@@ -51,12 +51,12 @@ shader_parameter/transition_strength = 0.5
 render_priority = 0
 shader = ExtResource("1_id5tj")
 shader_parameter/colorA = ExtResource("10_q5jox")
-shader_parameter/priorityA = ExtResource("14_is4ey")
+shader_parameter/priority_bmA = ExtResource("14_is4ey")
 shader_parameter/normalA = ExtResource("12_th2rb")
 shader_parameter/roughnessA = ExtResource("16_qwfmy")
 shader_parameter/micro_priorityA = 0.002
 shader_parameter/colorB = ExtResource("11_qiw1o")
-shader_parameter/priorityB = ExtResource("15_pj8uw")
+shader_parameter/priority_bmB = ExtResource("15_pj8uw")
 shader_parameter/normalB = ExtResource("13_qnyes")
 shader_parameter/roughnessB = ExtResource("17_krbi2")
 shader_parameter/micro_priorityB = 0.002
@@ -66,12 +66,12 @@ shader_parameter/transition_strength = 0.5
 render_priority = 0
 shader = ExtResource("1_id5tj")
 shader_parameter/colorA = ExtResource("18_vx2mu")
-shader_parameter/priorityA = ExtResource("20_b57vr")
+shader_parameter/priority_bmA = ExtResource("20_b57vr")
 shader_parameter/normalA = ExtResource("19_s6dyd")
 shader_parameter/roughnessA = ExtResource("21_y1q35")
 shader_parameter/micro_priorityA = 0.002
 shader_parameter/colorB = ExtResource("10_q5jox")
-shader_parameter/priorityB = ExtResource("14_is4ey")
+shader_parameter/priority_bmB = ExtResource("14_is4ey")
 shader_parameter/normalB = ExtResource("12_th2rb")
 shader_parameter/roughnessB = ExtResource("16_qwfmy")
 shader_parameter/micro_priorityB = 0.002
@@ -81,12 +81,12 @@ shader_parameter/transition_strength = 0.5
 render_priority = 0
 shader = ExtResource("1_id5tj")
 shader_parameter/colorA = ExtResource("3_mokmv")
-shader_parameter/priorityA = ExtResource("7_pe3hv")
+shader_parameter/priority_bmA = ExtResource("7_pe3hv")
 shader_parameter/normalA = ExtResource("5_m1trb")
 shader_parameter/roughnessA = ExtResource("9_82iwr")
 shader_parameter/micro_priorityA = 0.002
 shader_parameter/colorB = ExtResource("18_vx2mu")
-shader_parameter/priorityB = ExtResource("20_b57vr")
+shader_parameter/priority_bmB = ExtResource("20_b57vr")
 shader_parameter/normalB = ExtResource("19_s6dyd")
 shader_parameter/roughnessB = ExtResource("21_y1q35")
 shader_parameter/micro_priorityB = 0.002
@@ -96,12 +96,12 @@ shader_parameter/transition_strength = 0.5
 render_priority = 0
 shader = ExtResource("1_id5tj")
 shader_parameter/colorA = ExtResource("11_qiw1o")
-shader_parameter/priorityA = ExtResource("15_pj8uw")
+shader_parameter/priority_bmA = ExtResource("15_pj8uw")
 shader_parameter/normalA = ExtResource("13_qnyes")
 shader_parameter/roughnessA = ExtResource("17_krbi2")
 shader_parameter/micro_priorityA = 0.002
 shader_parameter/colorB = ExtResource("3_7w7fy")
-shader_parameter/priorityB = ExtResource("7_q7yi4")
+shader_parameter/priority_bmB = ExtResource("7_q7yi4")
 shader_parameter/normalB = ExtResource("5_envws")
 shader_parameter/roughnessB = ExtResource("9_nxxl2")
 shader_parameter/micro_priorityB = 0.002
@@ -111,12 +111,12 @@ shader_parameter/transition_strength = 0.5
 render_priority = 0
 shader = ExtResource("1_id5tj")
 shader_parameter/colorA = ExtResource("3_7w7fy")
-shader_parameter/priorityA = ExtResource("7_q7yi4")
+shader_parameter/priority_bmA = ExtResource("7_q7yi4")
 shader_parameter/normalA = ExtResource("5_envws")
 shader_parameter/roughnessA = ExtResource("9_nxxl2")
 shader_parameter/micro_priorityA = 0.002
 shader_parameter/colorB = ExtResource("26_ntuos")
-shader_parameter/priorityB = ExtResource("28_dqnt8")
+shader_parameter/priority_bmB = ExtResource("28_dqnt8")
 shader_parameter/normalB = ExtResource("27_7dy03")
 shader_parameter/roughnessB = ExtResource("29_x6ofo")
 shader_parameter/micro_priorityB = 0.002

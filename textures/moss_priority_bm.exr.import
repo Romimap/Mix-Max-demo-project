@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c27apuv18brq5"
-path="res://.godot/imported/grass_bm.exr-2ba0ccda0c921b4ea3ced0c1494bbf75.ctex"
+uid="uid://obneukweltpm"
+path="res://.godot/imported/moss_priority_bm.exr-5644fdc5ceea846852c601bff2a5ab67.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/grass_bm.exr"
-dest_files=["res://.godot/imported/grass_bm.exr-2ba0ccda0c921b4ea3ced0c1494bbf75.ctex"]
+source_file="res://textures/moss_priority_bm.exr"
+dest_files=["res://.godot/imported/moss_priority_bm.exr-5644fdc5ceea846852c601bff2a5ab67.ctex"]
 
 [params]
 

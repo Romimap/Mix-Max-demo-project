@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckwl6p3hp23s0"
-path="res://.godot/imported/brick_bm.exr-2e297e30185cd90009a599f0276bde54.ctex"
+uid="uid://c27apuv18brq5"
+path="res://.godot/imported/grass_priority_bm.exr-bcf8363b2df87830e220e6aeee23fd84.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/brick_bm.exr"
-dest_files=["res://.godot/imported/brick_bm.exr-2e297e30185cd90009a599f0276bde54.ctex"]
+source_file="res://textures/grass_priority_bm.exr"
+dest_files=["res://.godot/imported/grass_priority_bm.exr-bcf8363b2df87830e220e6aeee23fd84.ctex"]
 
 [params]
 
